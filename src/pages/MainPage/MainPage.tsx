@@ -3,6 +3,8 @@ import styles from './MainPage.module.scss';
 import Navigation from "@/containers/Navigation/Navigation";
 import {navigationLinks} from "@/utils/navigation";
 import Header from "@/containers/Header/Header";
+import PlaylistList from "@/containers/PlaylistList/PlaylistList";
+import {mockPlaylists} from "@/utils/playlists";
 
 const MainPage: FC = () => {
 
@@ -11,7 +13,7 @@ const MainPage: FC = () => {
         <Navigation links={navigationLinks}/>
         <div className={styles.content}>
           <Header />
-          <section>sec1</section>
+          <PlaylistList playlists={mockPlaylists}/>
           <section>sec2</section>
         </div>
       </main>

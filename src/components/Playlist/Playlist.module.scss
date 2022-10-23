@@ -1,0 +1,45 @@
+.playlist {
+  width: 380px;
+  height: 380px;
+  border-radius: 50px;
+
+  padding: 30px;
+
+  text-decoration: none;
+  color: var(--color-white);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  background-position: center !important;
+  background-size: cover !important;
+
+  span {
+    font-weight: 500;
+    font-size: var(--fs-default);
+  }
+
+}
+
+.play {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  .info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    p {
+      font-size: var(--fs-default);
+      font-weight: 500;
+    }
+
+    span {
+      font-size: var(--fs-small);
+      font-weight: 400;
+    }
+  }
+}
