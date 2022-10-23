@@ -1,10 +1,12 @@
 import React, { FC } from 'react';
 import styles from './MainPage.module.scss';
+import Navigation from "@/containers/Navigation/Navigation";
+import {navigationLinks} from "@/utils/navigation";
 
 const MainPage: FC = () => {
 
   return (
-      <h1>main page</h1>
+      <Navigation links={navigationLinks}/>
   );
 };
 
