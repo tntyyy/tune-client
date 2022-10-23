@@ -3,9 +3,7 @@ import styles from './Header.module.scss';
 import SearchPanel from "@/components/SearchPanel/SearchPanel";
 import UserPanel from "@/components/UserPanel/UserPanel";
 
-interface HeaderProps {}
-
-const Header: FC<HeaderProps> = (props) => {
+const Header: FC = () => {
 
   return (
       <header className={styles.header}>
