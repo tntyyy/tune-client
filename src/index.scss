@@ -72,3 +72,16 @@ body {
 	font-size: var(--fs-default);
 	line-height: 1;
 }
+
+body::-webkit-scrollbar {
+	width: 12px;
+}
+
+body::-webkit-scrollbar-track {
+	background: var(--color-black);
+}
+
+body::-webkit-scrollbar-thumb {
+	border-radius: var(--radius);
+	background-color: var(--color-blue);
+}
