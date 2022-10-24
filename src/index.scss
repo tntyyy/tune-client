@@ -1,0 +1,87 @@
+html,
+body,
+div,
+span,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+img,
+ol,
+ul,
+li,
+form,
+footer,
+header,
+nav {
+	margin: 0;
+	padding: 0;
+
+	vertical-align: baseline;
+
+	border: 0;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+	display: block;
+}
+
+:root {
+	--fs-default: 18px;
+	--fs-big: 24px;
+	--fs-small: 16px;
+	--color-blue: rgb(101 52 255 / 100%);
+	--color-gray: #A0A0A0;
+	--color-white: #FFF;
+	--color-black: #101010;
+	--radius: 10px;
+	--shadow: 0 2px 8px rgb(0 0 0 / 10%);
+	--transition: all 0.1s ease-in-out;
+	--border: 1px solid #DFE5EC;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	overflow-x: hidden;
+
+	box-sizing: border-box;
+	width: 100vw;
+	height: 100vh;
+
+	color: var(--color-white);
+	background: var(--color-black);
+
+	font-family: "Open Sans", sans-serif;
+	font-size: var(--fs-default);
+	line-height: 1;
+}
+
+body::-webkit-scrollbar {
+	width: 12px;
+}
+
+body::-webkit-scrollbar-track {
+	background: var(--color-black);
+}
+
+body::-webkit-scrollbar-thumb {
+	border-radius: var(--radius);
+	background-color: var(--color-blue);
+}

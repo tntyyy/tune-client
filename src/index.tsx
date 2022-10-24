@@ -1,11 +1,10 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
-import "./main.scss"
+import "./index.scss";
+import App from "@/components/App/App";
 
-const root = createRoot(document.getElementById('root')!);
+const root = createRoot(document.getElementById("root")!);
 
-const Root = (
-    <h1>work</h1>
-)
+const Root = <App />;
 
 root.render(Root);

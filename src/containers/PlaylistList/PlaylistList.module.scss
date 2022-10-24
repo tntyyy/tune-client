@@ -1,0 +1,16 @@
+.playlists {
+	display: flex;
+	flex-direction: column;
+	gap: 30px;
+
+	.wrapper {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+}
+
+.title {
+	font-size: var(--fs-big);
+	font-weight: 700;
+}
