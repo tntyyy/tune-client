@@ -9,13 +9,11 @@ interface TrackProps extends ITrack {
 
 const Track: FC<TrackProps> = (
     {
-        id,
         name,
         author,
         cover,
         position,
-        trackLength,
-        playlistId
+        trackLength
     }) => {
 
   return (

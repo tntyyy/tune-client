@@ -13,7 +13,7 @@ const Playlist: FC<IPlaylist> = ({id, name, cover, author, numberOfTracks}) => {
         event.stopPropagation();
         event.preventDefault();
         setIsPlay(!isPlay);
-    }
+    };
   return (
       <Link
           to={`/playlist/${id}`}

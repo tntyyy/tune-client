@@ -10,4 +10,4 @@ describe("secondToReadableTimeFormat", () => {
         const result = secondsToReadableTimeFormat(4880);
         expect(result).toEqual("01:21:20");
     });
-})
+});
