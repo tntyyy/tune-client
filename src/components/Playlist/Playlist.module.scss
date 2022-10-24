@@ -1,45 +1,45 @@
 .playlist {
-  width: 380px;
-  height: 380px;
-  border-radius: 50px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 
-  padding: 30px;
+	width: 380px;
+	height: 380px;
 
-  text-decoration: none;
-  color: var(--color-white);
+	padding: 30px;
 
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+	text-decoration: none;
 
-  background-position: center !important;
-  background-size: cover !important;
+	color: var(--color-white);
+	border-radius: 50px;
 
-  span {
-    font-weight: 500;
-    font-size: var(--fs-default);
-  }
+	background-position: center !important;
+	background-size: cover !important;
 
+	span {
+		font-size: var(--fs-default);
+		font-weight: 500;
+	}
 }
 
 .play {
-  display: flex;
-  align-items: center;
-  gap: 20px;
+	display: flex;
+	align-items: center;
+	gap: 20px;
 
-  .info {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
+	.info {
+		display: flex;
+		flex-direction: column;
+		gap: 5px;
 
-    p {
-      font-size: var(--fs-default);
-      font-weight: 500;
-    }
+		p {
+			font-size: var(--fs-default);
+			font-weight: 500;
+		}
 
-    span {
-      font-size: var(--fs-small);
-      font-weight: 400;
-    }
-  }
+		span {
+			font-size: var(--fs-small);
+			font-weight: 400;
+		}
+	}
 }
