@@ -1,0 +1,19 @@
+.tracklist {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+
+  padding-bottom: 30px;
+
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+}
+
+.title {
+  font-size: var(--fs-big);
+  font-weight: 700;
+}

@@ -5,6 +5,8 @@ import {navigationLinks} from "@/utils/navigation";
 import Header from "@/containers/Header/Header";
 import PlaylistList from "@/containers/PlaylistList/PlaylistList";
 import {mockPlaylists} from "@/utils/playlists";
+import TrackList from "@/containers/TrackList/TrackList";
+import {mockTracks} from "@/utils/tracks";
 
 const MainPage: FC = () => {
 
@@ -14,7 +16,7 @@ const MainPage: FC = () => {
         <div className={styles.content}>
           <Header />
           <PlaylistList playlists={mockPlaylists}/>
-          <section>sec2</section>
+          <TrackList tracks={mockTracks}/>
         </div>
       </main>
   );

@@ -11,7 +11,7 @@ export const mockPlaylists: IPlaylist[] = [
     {
         id: 2,
         name: "ЗАПРАВКА КИД",
-        author: "Mayout",
+        author: "Mayot",
         cover: "https://t2.genius.com/unsafe/873x0/https%3A%2F%2Fimages.genius.com%2F4526b293a54d496cd7434c83f3a87c84.1000x1000x1.jpg",
         numberOfTracks: 8
     },
