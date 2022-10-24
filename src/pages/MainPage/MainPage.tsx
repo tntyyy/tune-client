@@ -7,6 +7,7 @@ import PlaylistList from "@/containers/PlaylistList/PlaylistList";
 import { mockPlaylists } from "@/utils/playlists";
 import TrackList from "@/containers/TrackList/TrackList";
 import { mockTracks } from "@/utils/tracks";
+import AlbumOfWeek from "@/components/AlbumOfWeek/AlbumOfWeek";
 
 const MainPage: FC = () => {
     return (
@@ -15,7 +16,10 @@ const MainPage: FC = () => {
             <div className={styles.content}>
                 <Header />
                 <PlaylistList playlists={mockPlaylists} />
-                <TrackList tracks={mockTracks} />
+                <div className={styles.wrapper}>
+                    <TrackList tracks={mockTracks} />
+                    <AlbumOfWeek album={mockPlaylists[0]} />
+                </div>
             </div>
         </main>
     );
