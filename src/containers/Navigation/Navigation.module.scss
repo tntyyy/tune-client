@@ -1,15 +1,19 @@
 .nav {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
+	position: fixed;
+	top: 0;
+	left: 0;
 
-    width: 133px;
-    height: 100vh;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
 
-    padding-top: 40px;
+	width: 133px;
+	height: 100vh;
 
-    border-top-right-radius: 25px;
-    border-bottom-right-radius: 25px;
-    background-color: #0b0b0b;
-    gap: 52px;
+	padding-top: 40px;
+
+	border-top-right-radius: 25px;
+	border-bottom-right-radius: 25px;
+	background-color: #0B0B0B;
+	gap: 52px;
 }
