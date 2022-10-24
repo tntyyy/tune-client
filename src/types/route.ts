@@ -3,7 +3,7 @@ export enum NavigationRoutes {
     PLAYLISTS = "/playlists",
     FAVORITES = "/favorites",
     ARTISTS = "/artists",
-    TRACKS = "/tracks"
+    TRACKS = "/tracks",
 }
 
 export interface INavigationRoute {

@@ -1,4 +1,4 @@
-import {secondsToReadableTimeFormat} from "../secondsToReadableTimeFormat";
+import { secondsToReadableTimeFormat } from "../secondsToReadableTimeFormat";
 
 describe("secondToReadableTimeFormat", () => {
     it("should return without hours", () => {
