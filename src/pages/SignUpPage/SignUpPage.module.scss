@@ -41,5 +41,30 @@
 	justify-content: center;
 
 	background-color: #101010;
-	gap: 40px;
+	gap: 20px;
+
+	&__title {
+		font-size: 48px;
+		font-weight: 700;
+	}
+
+	&__subtitle {
+		margin-bottom: 40px;
+	}
+
+	&__redirect {
+		display: flex;
+		align-items: center;
+		gap: 5px;
+
+		font-size: var(--fs-small);
+
+		a {
+			text-decoration: none;
+
+			color: var(--color-blue);
+
+			font-weight: 700;
+		}
+	}
 }

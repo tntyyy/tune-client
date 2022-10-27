@@ -4,6 +4,8 @@ import { navigationLinks } from "@/utils/navigation";
 import Navigation from "@/containers/Navigation/Navigation";
 import SignUpForm from "@/containers/SignUpForm/SignUpForm";
 import signUpIllustration from "@/assets/images/signUpIllustration.svg";
+import { AppRoutesEnum } from "@/routes/types";
+import { Link } from "react-router-dom";
 
 const SignUpPage: FC = () => {
     const onSubmitForm = (e: React.MouseEvent<HTMLFormElement>) => {
@@ -31,6 +33,10 @@ const SignUpPage: FC = () => {
                         Make an account for the best experience
                     </p>
                     <SignUpForm handleSubmit={onSubmitForm} />
+                    <div className={styles.form__redirect}>
+                        <span>Already have an account?</span>
+                        <Link to={AppRoutesEnum.SIGNIN}>Sign In</Link>
+                    </div>
                 </div>
             </div>
         </div>
