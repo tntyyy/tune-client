@@ -7,8 +7,9 @@ import { AppRoutesEnum } from "@/routes/types";
 const UserPanel: FC = () => {
     return (
         <div className={styles.user}>
-            <Link to={AppRoutesEnum.SIGNUP}>Sign Up</Link>
-            <img src={userPic} alt="User" />
+            <Link to={AppRoutesEnum.SIGNUP}>
+                <img src={userPic} alt="User" />
+            </Link>
         </div>
     );
 };
