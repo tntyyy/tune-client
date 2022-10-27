@@ -5,3 +5,8 @@ export interface ISignUpFormFields {
     confirmPassword: string;
     role: string;
 }
+
+export interface ISignInFormFields {
+    email: string;
+    password: string;
+}

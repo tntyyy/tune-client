@@ -1,0 +1,23 @@
+.form {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+
+	width: 50%;
+}
+
+.btn {
+	padding: 20px 0;
+
+	cursor: pointer;
+
+	color: var(--color-white);
+	border: 0;
+	border-radius: 15px;
+
+	background: #333;
+
+	font-family: "Open Sans", sans-serif;
+	font-size: var(--fs-small);
+	font-weight: 400;
+}
