@@ -6,11 +6,23 @@ import SignUpForm from "@/containers/SignUpForm/SignUpForm";
 import signUpIllustration from "@/assets/images/signUpIllustration.svg";
 import { AppRoutesEnum } from "@/routes/types";
 import { Link } from "react-router-dom";
+import { authApi } from "@/store/api/authApi";
 
 const SignUpPage: FC = () => {
-    const onSubmitForm = (e: React.MouseEvent<HTMLFormElement>) => {
+    const [registerUser, { isLoading, isSuccess, error }] =
+        authApi.useRegisterUserMutation();
+
+    const onSubmitForm = async (e: React.MouseEvent<HTMLFormElement>) => {
         e.preventDefault();
-        console.log("submit");
+        const response = await registerUser({
+            email: "user123@mail.ru",
+            username: "username123",
+            password: "Hfdbkm123!",
+            confirmPassword: "Hfdbkm123!",
+            role: "USER",
+        });
+
+        console.log(response);
     };
 
     return (
