@@ -2,6 +2,7 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
 const ReactRefreshWebpackPlugin = require("@pmmmwh/react-refresh-webpack-plugin");
+const Dotenv = require("dotenv-webpack");
 
 /** @type {import('webpack').Configuration} */
 module.exports = {
@@ -70,5 +71,6 @@ module.exports = {
         }),
         new ForkTsCheckerWebpackPlugin(),
         new ReactRefreshWebpackPlugin(),
+        new Dotenv(),
     ],
 };
