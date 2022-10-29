@@ -12,6 +12,7 @@ export const authApi = createApi({
                 url: AuthRoutes.REGISTER,
                 method: "POST",
                 body: data,
+                credentials: "include",
             }),
         }),
     }),

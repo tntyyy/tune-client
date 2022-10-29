@@ -4,7 +4,10 @@ import InputField from "@/components/InputField/InputField";
 import { ISignUpFormFields } from "@/types/sign";
 
 interface SignUpFormProps {
-    handleSubmit: React.FormEventHandler<HTMLFormElement>;
+    handleSubmit: (
+        event: React.FormEvent<HTMLFormElement>,
+        data: ISignUpFormFields
+    ) => void;
 }
 
 const SignUpForm: FC<SignUpFormProps> = ({ handleSubmit }) => {
@@ -13,7 +16,12 @@ const SignUpForm: FC<SignUpFormProps> = ({ handleSubmit }) => {
     );
 
     return (
-        <form className={styles.form} onSubmit={handleSubmit}>
+        <form
+            className={styles.form}
+            onSubmit={(event: React.FormEvent<HTMLFormElement>) =>
+                handleSubmit(event, signUpData)
+            }
+        >
             <InputField
                 label={"Enter username"}
                 type={"text"}

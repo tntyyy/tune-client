@@ -7,22 +7,27 @@ import signUpIllustration from "@/assets/images/signUpIllustration.svg";
 import { AppRoutesEnum } from "@/routes/types";
 import { Link } from "react-router-dom";
 import { authApi } from "@/store/api/authApi";
+import { ISignUpFormFields } from "@/types/sign";
 
 const SignUpPage: FC = () => {
-    const [registerUser, { isLoading, isSuccess, error }] =
-        authApi.useRegisterUserMutation();
+    const [
+        registerUser,
+        { data: requestData, isLoading, isSuccess, error, status },
+    ] = authApi.useRegisterUserMutation();
 
-    const onSubmitForm = async (e: React.MouseEvent<HTMLFormElement>) => {
+    const onSubmitForm = async (
+        e: React.FormEvent<HTMLFormElement>,
+        data: ISignUpFormFields
+    ) => {
         e.preventDefault();
-        const response = await registerUser({
-            email: "user123@mail.ru",
-            username: "username123",
-            password: "Hfdbkm123!",
-            confirmPassword: "Hfdbkm123!",
-            role: "USER",
-        });
+        data.role = "USER";
 
-        console.log(response);
+        await registerUser({ ...data });
+
+        console.log(requestData);
+        console.log(error);
+        console.log(status);
+        console.log(data);
     };
 
     return (
