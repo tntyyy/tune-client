@@ -5,40 +5,20 @@ import Navigation from "@/containers/Navigation/Navigation";
 import SignUpForm from "@/containers/SignUpForm/SignUpForm";
 import signUpIllustration from "@/assets/images/signUpIllustration.svg";
 import { AppRoutesEnum } from "@/routes/types";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { authApi } from "@/store/api/authApi";
 import { ISignUpFormFields } from "@/types/sign";
 import { adapterSignUpFieldsToIUser } from "@/utils/adapterSignUpFieldsToIUser";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import "!style-loader!css-loader!react-toastify/dist/ReactToastify.css";
+import { errorNotification, successNotification } from "@/utils/notifications";
 
 const SignUpPage: FC = () => {
     const [registerUser, {}] = authApi.useRegisterUserMutation();
+    const navigate = useNavigate();
 
-    const errorNotification = (message: string) => {
-        return toast.error(message, {
-            position: "bottom-left",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "dark",
-        });
-    };
-
-    const successNotification = (message: string) => {
-        return toast.success(message, {
-            position: "top-right",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "dark",
-        });
+    const onSuccessSignUp = () => {
+        navigate("/");
     };
 
     const onSubmitForm = async (
@@ -49,9 +29,7 @@ const SignUpPage: FC = () => {
         try {
             await registerUser(adapterSignUpFieldsToIUser(data))
                 .unwrap()
-                .then(() =>
-                    successNotification("You have successfully registered!")
-                )
+                .then(() => onSuccessSignUp())
                 .catch((error) => errorNotification(error.data.message));
         } catch (e) {
             const errors = e.data.message.errors;
