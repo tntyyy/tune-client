@@ -17,6 +17,11 @@
         "eslint:fix": "npx eslint . --fix",
         "prettier:fix": "npx prettier -w ./src"
     },
+    "husky": {
+        "hooks": {
+            "pre-commit": "yarn eslint:fix && yarn prettier:fix && yarn stylelint && git add ."
+        }
+    },
     "devDependencies": {
         "@babel/core": "^7.14.8",
         "@babel/preset-env": "^7.14.9",
@@ -40,6 +45,7 @@
         "file-loader": "^6.2.0",
         "fork-ts-checker-webpack-plugin": "^6.3.1",
         "html-webpack-plugin": "^5.3.2",
+        "husky": "^8.0.1",
         "identity-obj-proxy": "^3.0.0",
         "jest": "^27.0.6",
         "prettier": "^2.7.1",
