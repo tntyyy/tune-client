@@ -1,5 +1,6 @@
 import React, { FC } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
 
 import Navigation from "@/containers/Navigation/Navigation";
 import SignInForm from "@/containers/SignInForm/SignInForm";
@@ -7,6 +8,9 @@ import SignInForm from "@/containers/SignInForm/SignInForm";
 import { AppRoutesEnum } from "@/routes/types";
 
 import { navigationLinks } from "@/utils/navigation";
+import { notificationsForEveryError } from "@/utils/notificationsForEveryError";
+
+import { authApi } from "@/store/api/authApi";
 
 import { ISignInFormFields } from "@/types/sign";
 
@@ -15,12 +19,31 @@ import signIllustration from "@/assets/images/signInIllustration.svg";
 import styles from "./SignInPage.module.scss";
 
 const SignInPage: FC = () => {
-    const onSubmitForm = (
+    const [loginUser] = authApi.useLoginUserMutation();
+    const navigate = useNavigate();
+
+    const onSuccessSignIn = () => {
+        navigate("/");
+    };
+
+    const onSubmitForm = async (
         e: React.FormEvent<HTMLFormElement>,
         data: ISignInFormFields
     ) => {
         e.preventDefault();
-        console.log(data);
+        try {
+            await loginUser(data)
+                .unwrap()
+                .then(() => onSuccessSignIn())
+                .catch((error) =>
+                    notificationsForEveryError(error.data.message.errors)
+                );
+        } catch (e) {
+            const errors = e?.data?.message;
+            if (errors) {
+                notificationsForEveryError(errors);
+            }
+        }
     };
 
     return (
@@ -49,6 +72,7 @@ const SignInPage: FC = () => {
                     </div>
                 </div>
             </div>
+            <ToastContainer />
         </div>
     );
 };
