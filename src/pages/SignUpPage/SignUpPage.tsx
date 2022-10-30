@@ -19,8 +19,6 @@ const SignUpPage: FC = () => {
         data: ISignUpFormFields
     ) => {
         e.preventDefault();
-        data.role = "USER";
-
         try {
             const response = await registerUser(
                 adapterSignUpFieldsToIUser(data)

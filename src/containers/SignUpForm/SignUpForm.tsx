@@ -54,11 +54,31 @@ const SignUpForm: FC<SignUpFormProps> = ({ handleSubmit }) => {
             />
             <div className={styles.roles}>
                 <label className={styles.radio}>
-                    <input type="radio" name={"role"} value="USER" />
+                    <input
+                        type="radio"
+                        name={"role"}
+                        value="USER"
+                        onChange={(event) =>
+                            setSignUpData({
+                                ...signUpData,
+                                role: event.target.value,
+                            })
+                        }
+                    />
                     <span>I am a regular user</span>
                 </label>
                 <label className={styles.radio}>
-                    <input type="radio" name={"role"} value="ARTIST" />
+                    <input
+                        type="radio"
+                        name={"role"}
+                        value="ARTIST"
+                        onChange={(event) =>
+                            setSignUpData({
+                                ...signUpData,
+                                role: event.target.value,
+                            })
+                        }
+                    />
                     <span>I'm an artist</span>
                 </label>
             </div>
