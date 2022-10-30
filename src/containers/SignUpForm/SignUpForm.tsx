@@ -4,7 +4,10 @@ import InputField from "@/components/InputField/InputField";
 import { ISignUpFormFields } from "@/types/sign";
 
 interface SignUpFormProps {
-    handleSubmit: React.FormEventHandler<HTMLFormElement>;
+    handleSubmit: (
+        event: React.FormEvent<HTMLFormElement>,
+        data: ISignUpFormFields
+    ) => void;
 }
 
 const SignUpForm: FC<SignUpFormProps> = ({ handleSubmit }) => {
@@ -13,7 +16,12 @@ const SignUpForm: FC<SignUpFormProps> = ({ handleSubmit }) => {
     );
 
     return (
-        <form className={styles.form} onSubmit={handleSubmit}>
+        <form
+            className={styles.form}
+            onSubmit={(event: React.FormEvent<HTMLFormElement>) =>
+                handleSubmit(event, signUpData)
+            }
+        >
             <InputField
                 label={"Enter username"}
                 type={"text"}
@@ -44,6 +52,36 @@ const SignUpForm: FC<SignUpFormProps> = ({ handleSubmit }) => {
                     setSignUpData({ ...signUpData, confirmPassword })
                 }
             />
+            <div className={styles.roles}>
+                <label className={styles.radio}>
+                    <input
+                        type="radio"
+                        name={"role"}
+                        value="USER"
+                        onChange={(event) =>
+                            setSignUpData({
+                                ...signUpData,
+                                role: event.target.value,
+                            })
+                        }
+                    />
+                    <span>I am a regular user</span>
+                </label>
+                <label className={styles.radio}>
+                    <input
+                        type="radio"
+                        name={"role"}
+                        value="ARTIST"
+                        onChange={(event) =>
+                            setSignUpData({
+                                ...signUpData,
+                                role: event.target.value,
+                            })
+                        }
+                    />
+                    <span>I'm an artist</span>
+                </label>
+            </div>
             <button type="submit" className={styles.btn}>
                 Sign Up
             </button>
