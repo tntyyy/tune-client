@@ -8,12 +8,11 @@ import { AppRoutesEnum } from "@/routes/types";
 import { Link } from "react-router-dom";
 import { authApi } from "@/store/api/authApi";
 import { ISignUpFormFields } from "@/types/sign";
+import { adapterSignUpFieldsToIUser } from "@/utils/adapterSignUpFieldsToIUser";
 
 const SignUpPage: FC = () => {
-    const [
-        registerUser,
-        { data: requestData, isLoading, isSuccess, error, status },
-    ] = authApi.useRegisterUserMutation();
+    const [registerUser, { data: requestData }] =
+        authApi.useRegisterUserMutation();
 
     const onSubmitForm = async (
         e: React.FormEvent<HTMLFormElement>,
@@ -22,12 +21,15 @@ const SignUpPage: FC = () => {
         e.preventDefault();
         data.role = "USER";
 
-        await registerUser({ ...data });
-
-        console.log(requestData);
-        console.log(error);
-        console.log(status);
-        console.log(data);
+        try {
+            const response = await registerUser(
+                adapterSignUpFieldsToIUser(data)
+            ).unwrap();
+            console.log(response);
+            console.log(requestData);
+        } catch (e) {
+            console.log(e);
+        }
     };
 
     return (

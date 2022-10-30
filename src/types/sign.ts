@@ -1,9 +1,12 @@
-export interface ISignUpFormFields {
+export interface ISignUpUser {
     username: string;
     email: string;
     password: string;
-    confirmPassword: string;
     role: string;
+}
+
+export interface ISignUpFormFields extends ISignUpUser {
+    confirmPassword: string;
 }
 
 export interface ISignInFormFields {
