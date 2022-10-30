@@ -14,9 +14,13 @@ interface SignUpFormProps {
 }
 
 const SignUpForm: FC<SignUpFormProps> = ({ handleSubmit }) => {
-    const [signUpData, setSignUpData] = useState<ISignUpFormFields>(
-        {} as ISignUpFormFields
-    );
+    const [signUpData, setSignUpData] = useState<ISignUpFormFields>({
+        username: "",
+        email: "",
+        password: "",
+        confirmPassword: "",
+        role: "",
+    });
 
     return (
         <form

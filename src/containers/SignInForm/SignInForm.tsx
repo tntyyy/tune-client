@@ -7,16 +7,25 @@ import { ISignInFormFields } from "@/types/sign";
 import styles from "./SignInForm.module.scss";
 
 interface SignUpFormProps {
-    handleSubmit: React.FormEventHandler<HTMLFormElement>;
+    handleSubmit: (
+        event: React.FormEvent<HTMLFormElement>,
+        data: ISignInFormFields
+    ) => void;
 }
 
 const SignInForm: FC<SignUpFormProps> = ({ handleSubmit }) => {
-    const [signInData, setSignInData] = useState<ISignInFormFields>(
-        {} as ISignInFormFields
-    );
+    const [signInData, setSignInData] = useState<ISignInFormFields>({
+        email: "",
+        password: "",
+    });
 
     return (
-        <form className={styles.form} onSubmit={handleSubmit}>
+        <form
+            className={styles.form}
+            onSubmit={(event: React.FormEvent<HTMLFormElement>) =>
+                handleSubmit(event, signInData)
+            }
+        >
             <InputField
                 label={"Enter email"}
                 type={"text"}

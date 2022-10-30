@@ -8,14 +8,19 @@ import { AppRoutesEnum } from "@/routes/types";
 
 import { navigationLinks } from "@/utils/navigation";
 
+import { ISignInFormFields } from "@/types/sign";
+
 import signIllustration from "@/assets/images/signInIllustration.svg";
 
 import styles from "./SignInPage.module.scss";
 
 const SignInPage: FC = () => {
-    const onSubmitForm = (e: React.MouseEvent<HTMLFormElement>) => {
+    const onSubmitForm = (
+        e: React.FormEvent<HTMLFormElement>,
+        data: ISignInFormFields
+    ) => {
         e.preventDefault();
-        console.log("submit");
+        console.log(data);
     };
 
     return (
