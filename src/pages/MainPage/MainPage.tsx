@@ -1,13 +1,17 @@
 import React, { FC } from "react";
-import styles from "./MainPage.module.scss";
-import Navigation from "@/containers/Navigation/Navigation";
-import { navigationLinks } from "@/utils/navigation";
-import Header from "@/containers/Header/Header";
-import PlaylistList from "@/containers/PlaylistList/PlaylistList";
-import { mockPlaylists } from "@/utils/playlists";
-import TrackList from "@/containers/TrackList/TrackList";
-import { mockTracks } from "@/utils/tracks";
+
 import AlbumOfWeek from "@/components/AlbumOfWeek/AlbumOfWeek";
+
+import Header from "@/containers/Header/Header";
+import Navigation from "@/containers/Navigation/Navigation";
+import PlaylistList from "@/containers/PlaylistList/PlaylistList";
+import TrackList from "@/containers/TrackList/TrackList";
+
+import { navigationLinks } from "@/utils/navigation";
+import { mockPlaylists } from "@/utils/playlists";
+import { mockTracks } from "@/utils/tracks";
+
+import styles from "./MainPage.module.scss";
 
 const MainPage: FC = () => {
     return (

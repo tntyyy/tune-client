@@ -1,7 +1,9 @@
 import React, { FC } from "react";
-import styles from "./Header.module.scss";
+
 import SearchPanel from "@/components/SearchPanel/SearchPanel";
 import UserPanel from "@/components/UserPanel/UserPanel";
+
+import styles from "./Header.module.scss";
 
 const Header: FC = () => {
     return (

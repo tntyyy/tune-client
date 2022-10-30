@@ -1,7 +1,10 @@
 import React, { FC } from "react";
-import styles from "./PlaylistList.module.scss";
-import { IPlaylist } from "@/types/playlist";
+
 import Playlist from "@/components/Playlist/Playlist";
+
+import { IPlaylist } from "@/types/playlist";
+
+import styles from "./PlaylistList.module.scss";
 
 interface IPlaylistListProps {
     playlists: IPlaylist[];

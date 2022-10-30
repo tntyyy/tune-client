@@ -1,7 +1,10 @@
 import React, { FC } from "react";
-import styles from "./TrackList.module.scss";
-import { ITrack } from "@/types/track";
+
 import Track from "@/components/Track/Track";
+
+import { ITrack } from "@/types/track";
+
+import styles from "./TrackList.module.scss";
 
 interface ITrackListProps {
     tracks: ITrack[];

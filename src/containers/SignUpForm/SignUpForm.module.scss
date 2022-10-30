@@ -1,96 +1,96 @@
 .form {
-	display: flex;
-	flex-direction: column;
-	gap: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 
-	width: 50%;
+    width: 50%;
 }
 
 .btn {
-	padding: 20px 0;
+    padding: 20px 0;
 
-	cursor: pointer;
+    cursor: pointer;
 
-	color: var(--color-white);
-	border: 0;
-	border-radius: 15px;
+    color: var(--color-white);
+    border: 0;
+    border-radius: 15px;
 
-	background: #333;
+    background: #333;
 
-	font-family: "Open Sans", sans-serif;
-	font-size: var(--fs-small);
-	font-weight: 400;
+    font-family: "Open Sans", sans-serif;
+    font-size: var(--fs-small);
+    font-weight: 400;
 }
 
 .roles {
-	display: flex;
-	flex-direction: column;
+    display: flex;
+    flex-direction: column;
 
-	label {
-		display: flex;
-		gap: 10px;
+    label {
+        display: flex;
+        gap: 10px;
 
-		cursor: pointer;
+        cursor: pointer;
 
-		span {
-			color: var(--color-white);
+        span {
+            color: var(--color-white);
 
-			font-size: var(--fs-small);
-			font-weight: normal;
-		}
-	}
+            font-size: var(--fs-small);
+            font-weight: normal;
+        }
+    }
 }
 
 .radio {
-	display: grid;
+    display: grid;
 
-	font-family: system-ui, sans-serif;
-	font-size: 2rem;
-	font-weight: bold;
-	line-height: 1.1;
-	grid-template-columns: 1em auto;
-	gap: 0.5em;
+    font-family: system-ui, sans-serif;
+    font-size: 2rem;
+    font-weight: bold;
+    line-height: 1.1;
+    grid-template-columns: 1em auto;
+    gap: 0.5em;
 }
 
 .radio + .radio {
-	margin-top: 1em;
+    margin-top: 1em;
 }
 
 .radio:focus-within {
-	color: var(--color-blue);
+    color: var(--color-blue);
 }
 
 input[type="radio"] {
-	display: grid;
+    display: grid;
 
-	width: 0.6em;
-	height: 0.6em;
-	margin: 0;
+    width: 0.6em;
+    height: 0.6em;
+    margin: 0;
 
-	transform: translateY(-0.075em);
+    transform: translateY(-0.075em);
 
-	color: currentcolor;
-	border: 0.08em solid currentcolor;
-	border-radius: 50%;
-	background-color: inherit;
+    color: currentcolor;
+    border: 0.08em solid currentcolor;
+    border-radius: 50%;
+    background-color: inherit;
 
-	font: inherit;
-	appearance: none;
-	place-content: center;
+    font: inherit;
+    appearance: none;
+    place-content: center;
 }
 
 input[type="radio"]::before {
-	width: 0.35em;
-	height: 0.35em;
+    width: 0.35em;
+    height: 0.35em;
 
-	content: "";
-	transition: 120ms transform ease-in-out;
-	transform: scale(0);
+    content: "";
+    transition: 120ms transform ease-in-out;
+    transform: scale(0);
 
-	border-radius: 50%;
-	box-shadow: inset 1em 1em var(--color-blue);
+    border-radius: 50%;
+    box-shadow: inset 1em 1em var(--color-blue);
 }
 
 input[type="radio"]:checked::before {
-	transform: scale(1);
+    transform: scale(1);
 }

@@ -14,7 +14,8 @@
         "bundle-report": "yarn build && webpack-bundle-analyzer dist/stats.json",
         "stylelint": "stylelint \"**/*.scss\" --fix",
         "eslint": "npx eslint .",
-        "eslint:fix": "npx eslint . --fix"
+        "eslint:fix": "npx eslint . --fix",
+        "prettier:fix": "npx prettier -w ./src"
     },
     "devDependencies": {
         "@babel/core": "^7.14.8",
@@ -25,6 +26,7 @@
         "@testing-library/jest-dom": "^5.16.5",
         "@testing-library/react": "^13.4.0",
         "@testing-library/user-event": "^13.5.0",
+        "@trivago/prettier-plugin-sort-imports": "^3.4.0",
         "@types/jest": "^26.0.24",
         "@types/react": "^17.0.15",
         "@types/react-dom": "^18.0.5",

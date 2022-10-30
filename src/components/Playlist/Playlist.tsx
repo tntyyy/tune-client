@@ -1,10 +1,12 @@
 import React, { FC, useState } from "react";
-import styles from "./Playlist.module.scss";
-import { IPlaylist } from "@/types/playlist";
 import { Link } from "react-router-dom";
 
-import playIcon from "@/assets/icons/play.svg";
+import { IPlaylist } from "@/types/playlist";
+
 import pauseIcon from "@/assets/icons/pause.svg";
+import playIcon from "@/assets/icons/play.svg";
+
+import styles from "./Playlist.module.scss";
 
 const Playlist: FC<IPlaylist> = ({
     id,

@@ -1,17 +1,24 @@
+import "!style-loader!css-loader!react-toastify/dist/ReactToastify.css";
 import React, { FC } from "react";
-import styles from "./SignUpPage.module.scss";
-import { navigationLinks } from "@/utils/navigation";
+import { Link, useNavigate } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+
 import Navigation from "@/containers/Navigation/Navigation";
 import SignUpForm from "@/containers/SignUpForm/SignUpForm";
-import signUpIllustration from "@/assets/images/signUpIllustration.svg";
+
 import { AppRoutesEnum } from "@/routes/types";
-import { Link, useNavigate } from "react-router-dom";
-import { authApi } from "@/store/api/authApi";
-import { ISignUpFormFields } from "@/types/sign";
+
 import { adapterSignUpFieldsToIUser } from "@/utils/adapterSignUpFieldsToIUser";
-import { ToastContainer } from "react-toastify";
-import "!style-loader!css-loader!react-toastify/dist/ReactToastify.css";
+import { navigationLinks } from "@/utils/navigation";
 import { notificationsForEveryError } from "@/utils/notificationsForEveryError";
+
+import { authApi } from "@/store/api/authApi";
+
+import { ISignUpFormFields } from "@/types/sign";
+
+import signUpIllustration from "@/assets/images/signUpIllustration.svg";
+
+import styles from "./SignUpPage.module.scss";
 
 const SignUpPage: FC = () => {
     const [registerUser] = authApi.useRegisterUserMutation();

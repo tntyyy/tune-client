@@ -1,8 +1,9 @@
 import { INavigationRoute, NavigationRoutes } from "@/types/route";
-import homeIcon from "@/assets/icons/home.svg";
-import genresIcon from "@/assets/icons/compass.svg";
+
 import tracksIcon from "@/assets/icons/collection.svg";
+import genresIcon from "@/assets/icons/compass.svg";
 import favoritesIcon from "@/assets/icons/heart.svg";
+import homeIcon from "@/assets/icons/home.svg";
 
 export const navigationLinks: INavigationRoute[] = [
     {

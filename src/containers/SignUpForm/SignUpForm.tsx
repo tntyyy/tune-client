@@ -1,7 +1,10 @@
 import React, { FC, useState } from "react";
-import styles from "./SignUpForm.module.scss";
+
 import InputField from "@/components/InputField/InputField";
+
 import { ISignUpFormFields } from "@/types/sign";
+
+import styles from "./SignUpForm.module.scss";
 
 interface SignUpFormProps {
     handleSubmit: (

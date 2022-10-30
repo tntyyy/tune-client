@@ -1,7 +1,10 @@
 import React, { FC } from "react";
-import styles from "./Track.module.scss";
-import { ITrack } from "@/types/track";
+
 import { secondsToReadableTimeFormat } from "@/utils/secondsToReadableTimeFormat";
+
+import { ITrack } from "@/types/track";
+
+import styles from "./Track.module.scss";
 
 interface TrackProps extends ITrack {
     position: number;

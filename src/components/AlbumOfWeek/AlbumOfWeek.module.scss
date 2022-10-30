@@ -1,55 +1,55 @@
 .album {
-	display: flex;
-	flex-direction: column;
-	gap: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
 
-	width: 30%;
+    width: 30%;
 }
 
 .content {
-	display: flex;
-	flex-direction: column;
+    display: flex;
+    flex-direction: column;
 
-	height: 100%;
+    height: 100%;
 
-	padding: 30px;
+    padding: 30px;
 
-	border: 1px solid #333;
-	border-radius: 25px;
-	background: #0D0D0D;
-	gap: 15px;
+    border: 1px solid #333;
+    border-radius: 25px;
+    background: #0d0d0d;
+    gap: 15px;
 
-	img {
-		width: 100%;
+    img {
+        width: 100%;
 
-		border-radius: 25px;
-	}
+        border-radius: 25px;
+    }
 
-	.bottom {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
+    .bottom {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
 
-		.info {
-			display: flex;
-			flex-direction: column;
-			gap: 10px;
+        .info {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
 
-			h4 {
-				margin-top: 10px;
+            h4 {
+                margin-top: 10px;
 
-				font-size: var(--fs-big);
-			}
+                font-size: var(--fs-big);
+            }
 
-			span {
-				font-size: var(--fs-small);
-			}
-		}
+            span {
+                font-size: var(--fs-small);
+            }
+        }
 
-		img {
-			width: 70px;
+        img {
+            width: 70px;
 
-			cursor: pointer;
-		}
-	}
+            cursor: pointer;
+        }
+    }
 }

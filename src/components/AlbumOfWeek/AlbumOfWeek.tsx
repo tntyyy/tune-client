@@ -1,7 +1,10 @@
 import React, { FC } from "react";
-import styles from "./AlbumOfWeek.module.scss";
+
 import { IPlaylist } from "@/types/playlist";
+
 import playIcon from "@/assets/icons/play.svg";
+
+import styles from "./AlbumOfWeek.module.scss";
 
 interface IAlbumOfWeekProps {
     album: IPlaylist;

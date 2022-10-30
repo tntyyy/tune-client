@@ -1,8 +1,11 @@
 import React, { FC } from "react";
-import styles from "./Navigation.module.scss";
-import { INavigationRoute } from "@/types/route";
-import NavigationLink from "@/components/NavigationLink/NavigationLink";
+
 import Logo from "@/components/Logo/Logo";
+import NavigationLink from "@/components/NavigationLink/NavigationLink";
+
+import { INavigationRoute } from "@/types/route";
+
+import styles from "./Navigation.module.scss";
 
 interface INavigationProps {
     links: INavigationRoute[];

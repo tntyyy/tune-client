@@ -1,5 +1,6 @@
-import { IUser } from "@/types/IUser";
 import { createSlice } from "@reduxjs/toolkit";
+
+import { IUser } from "@/types/IUser";
 
 interface IUserState {
     user: IUser | null;

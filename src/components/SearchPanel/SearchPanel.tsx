@@ -1,4 +1,5 @@
 import React, { FC } from "react";
+
 import styles from "./SearchPanel.module.scss";
 
 const SearchPanel: FC = () => {

@@ -1,11 +1,16 @@
 import React, { FC } from "react";
-import styles from "./SignInPage.module.scss";
-import { navigationLinks } from "@/utils/navigation";
-import Navigation from "@/containers/Navigation/Navigation";
-import signIllustration from "@/assets/images/signInIllustration.svg";
-import { AppRoutesEnum } from "@/routes/types";
 import { Link } from "react-router-dom";
+
+import Navigation from "@/containers/Navigation/Navigation";
 import SignInForm from "@/containers/SignInForm/SignInForm";
+
+import { AppRoutesEnum } from "@/routes/types";
+
+import { navigationLinks } from "@/utils/navigation";
+
+import signIllustration from "@/assets/images/signInIllustration.svg";
+
+import styles from "./SignInPage.module.scss";
 
 const SignInPage: FC = () => {
     const onSubmitForm = (e: React.MouseEvent<HTMLFormElement>) => {
