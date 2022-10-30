@@ -9,10 +9,37 @@ import { Link } from "react-router-dom";
 import { authApi } from "@/store/api/authApi";
 import { ISignUpFormFields } from "@/types/sign";
 import { adapterSignUpFieldsToIUser } from "@/utils/adapterSignUpFieldsToIUser";
+import { ToastContainer, toast } from "react-toastify";
+import "!style-loader!css-loader!react-toastify/dist/ReactToastify.css";
 
 const SignUpPage: FC = () => {
-    const [registerUser, { data: requestData }] =
-        authApi.useRegisterUserMutation();
+    const [registerUser, {}] = authApi.useRegisterUserMutation();
+
+    const errorNotification = (message: string) => {
+        return toast.error(message, {
+            position: "bottom-left",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+        });
+    };
+
+    const successNotification = (message: string) => {
+        return toast.success(message, {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+        });
+    };
 
     const onSubmitForm = async (
         e: React.FormEvent<HTMLFormElement>,
@@ -20,13 +47,20 @@ const SignUpPage: FC = () => {
     ) => {
         e.preventDefault();
         try {
-            const response = await registerUser(
-                adapterSignUpFieldsToIUser(data)
-            ).unwrap();
-            console.log(response);
-            console.log(requestData);
+            await registerUser(adapterSignUpFieldsToIUser(data))
+                .unwrap()
+                .then(() =>
+                    successNotification("You have successfully registered!")
+                )
+                .catch((error) => errorNotification(error.data.message));
         } catch (e) {
-            console.log(e);
+            const errors = e.data.message.errors;
+            if (errors) {
+                console.log(errors);
+                errors.forEach((err: any) => {
+                    errorNotification(err.msg);
+                });
+            }
         }
     };
 
@@ -56,6 +90,7 @@ const SignUpPage: FC = () => {
                     </div>
                 </div>
             </div>
+            <ToastContainer />
         </div>
     );
 };
