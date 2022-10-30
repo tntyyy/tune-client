@@ -52,6 +52,16 @@ const SignUpForm: FC<SignUpFormProps> = ({ handleSubmit }) => {
                     setSignUpData({ ...signUpData, confirmPassword })
                 }
             />
+            <div className={styles.roles}>
+                <label className={styles.radio}>
+                    <input type="radio" name={"role"} value="USER" />
+                    <span>I am a regular user</span>
+                </label>
+                <label className={styles.radio}>
+                    <input type="radio" name={"role"} value="ARTIST" />
+                    <span>I'm an artist</span>
+                </label>
+            </div>
             <button type="submit" className={styles.btn}>
                 Sign Up
             </button>
