@@ -11,10 +11,10 @@ import { ISignUpFormFields } from "@/types/sign";
 import { adapterSignUpFieldsToIUser } from "@/utils/adapterSignUpFieldsToIUser";
 import { ToastContainer } from "react-toastify";
 import "!style-loader!css-loader!react-toastify/dist/ReactToastify.css";
-import { errorNotification, successNotification } from "@/utils/notifications";
+import { notificationsForEveryError } from "@/utils/notificationsForEveryError";
 
 const SignUpPage: FC = () => {
-    const [registerUser, {}] = authApi.useRegisterUserMutation();
+    const [registerUser] = authApi.useRegisterUserMutation();
     const navigate = useNavigate();
 
     const onSuccessSignUp = () => {
@@ -30,15 +30,12 @@ const SignUpPage: FC = () => {
             await registerUser(adapterSignUpFieldsToIUser(data))
                 .unwrap()
                 .then(() => onSuccessSignUp())
-                .catch((error) => errorNotification(error.data.message));
+                .catch((error) =>
+                    notificationsForEveryError(error.data.message.errors)
+                );
         } catch (e) {
             const errors = e.data.message.errors;
-            if (errors) {
-                console.log(errors);
-                errors.forEach((err: any) => {
-                    errorNotification(err.msg);
-                });
-            }
+            notificationsForEveryError(errors);
         }
     };
 
