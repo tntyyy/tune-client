@@ -5,14 +5,21 @@ import Navigation from "@/containers/Navigation/Navigation";
 import SignUpForm from "@/containers/SignUpForm/SignUpForm";
 import signUpIllustration from "@/assets/images/signUpIllustration.svg";
 import { AppRoutesEnum } from "@/routes/types";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { authApi } from "@/store/api/authApi";
 import { ISignUpFormFields } from "@/types/sign";
 import { adapterSignUpFieldsToIUser } from "@/utils/adapterSignUpFieldsToIUser";
+import { ToastContainer } from "react-toastify";
+import "!style-loader!css-loader!react-toastify/dist/ReactToastify.css";
+import { notificationsForEveryError } from "@/utils/notificationsForEveryError";
 
 const SignUpPage: FC = () => {
-    const [registerUser, { data: requestData }] =
-        authApi.useRegisterUserMutation();
+    const [registerUser] = authApi.useRegisterUserMutation();
+    const navigate = useNavigate();
+
+    const onSuccessSignUp = () => {
+        navigate("/");
+    };
 
     const onSubmitForm = async (
         e: React.FormEvent<HTMLFormElement>,
@@ -20,13 +27,15 @@ const SignUpPage: FC = () => {
     ) => {
         e.preventDefault();
         try {
-            const response = await registerUser(
-                adapterSignUpFieldsToIUser(data)
-            ).unwrap();
-            console.log(response);
-            console.log(requestData);
+            await registerUser(adapterSignUpFieldsToIUser(data))
+                .unwrap()
+                .then(() => onSuccessSignUp())
+                .catch((error) =>
+                    notificationsForEveryError(error.data.message.errors)
+                );
         } catch (e) {
-            console.log(e);
+            const errors = e.data.message.errors;
+            notificationsForEveryError(errors);
         }
     };
 
@@ -56,6 +65,7 @@ const SignUpPage: FC = () => {
                     </div>
                 </div>
             </div>
+            <ToastContainer />
         </div>
     );
 };
