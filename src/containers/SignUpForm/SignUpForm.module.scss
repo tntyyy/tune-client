@@ -63,8 +63,8 @@
 input[type="radio"] {
 	display: grid;
 
-	width: 0.8em;
-	height: 0.8em;
+	width: 0.6em;
+	height: 0.6em;
 	margin: 0;
 
 	transform: translateY(-0.075em);
@@ -80,8 +80,8 @@ input[type="radio"] {
 }
 
 input[type="radio"]::before {
-	width: 0.45em;
-	height: 0.45em;
+	width: 0.35em;
+	height: 0.35em;
 
 	content: "";
 	transition: 120ms transform ease-in-out;
