@@ -1,6 +1,7 @@
 import React from "react";
 import { useRoutes } from "react-router-dom";
 
+import FavoritesPage from "@/pages/FavoritesPage/FavoritesPage";
 import MainPage from "@/pages/MainPage/MainPage";
 import SignInPage from "@/pages/SignInPage/SignInPage";
 import SignUpPage from "@/pages/SignUpPage/SignUpPage";
@@ -20,6 +21,10 @@ const AppRoutes = () =>
         {
             path: AppRoutesEnum.SIGNIN,
             element: <SignInPage />,
+        },
+        {
+            path: AppRoutesEnum.FAVORITES,
+            element: <FavoritesPage />,
         },
     ]);
 

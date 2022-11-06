@@ -10,6 +10,7 @@ import { AppRoutesEnum } from "@/routes/types";
 
 import { adapterSignUpFieldsToIUser } from "@/utils/adapterSignUpFieldsToIUser";
 import { navigationLinks } from "@/utils/navigation";
+import { successNotification } from "@/utils/notifications";
 import { notificationsForEveryError } from "@/utils/notificationsForEveryError";
 
 import { authApi } from "@/store/api/authApi";
@@ -25,6 +26,7 @@ const SignUpPage: FC = () => {
     const navigate = useNavigate();
 
     const onSuccessSignUp = () => {
+        successNotification("You have successfully registered");
         navigate("/");
     };
 

@@ -8,6 +8,7 @@ import SignInForm from "@/containers/SignInForm/SignInForm";
 import { AppRoutesEnum } from "@/routes/types";
 
 import { navigationLinks } from "@/utils/navigation";
+import { successNotification } from "@/utils/notifications";
 import { notificationsForEveryError } from "@/utils/notificationsForEveryError";
 
 import { authApi } from "@/store/api/authApi";
@@ -23,6 +24,7 @@ const SignInPage: FC = () => {
     const navigate = useNavigate();
 
     const onSuccessSignIn = () => {
+        successNotification("You have successfully authorization");
         navigate("/");
     };
 
