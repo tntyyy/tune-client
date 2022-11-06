@@ -41,8 +41,6 @@ section {
 }
 
 :root {
-    font-size: 18px;
-
     --fs-default: 1rem;
     --fs-big: 1.33rem;
     --fs-small: 0.88rem;
@@ -55,6 +53,7 @@ section {
     --transition: all 0.1s ease-in-out;
     --border: 1px solid #dfe5ec;
     --form-control-color: rebeccapurple;
+    font-size: 18px;
 }
 
 *,
