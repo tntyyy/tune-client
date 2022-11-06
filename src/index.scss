@@ -41,9 +41,11 @@ section {
 }
 
 :root {
-    --fs-default: 18px;
-    --fs-big: 24px;
-    --fs-small: 16px;
+    font-size: 18px;
+
+    --fs-default: 1rem;
+    --fs-big: 1.33rem;
+    --fs-small: 0.88rem;
     --color-blue: #0364d7;
     --color-gray: #a0a0a0;
     --color-white: #fff;
