@@ -13,14 +13,24 @@ const FavoritesPage: FC = () => {
         <main className={styles.main}>
             <Navigation links={navigationLinks} />
             <div className={styles.content}>
-                <h1 className={styles.title}>Your favorite tracks</h1>
+                <h1 className={styles.title}>
+                    Hi <span>Ravil</span>, here are your favorite tracks
+                </h1>
                 <div className={styles.info}>
-                    <p>Total tracks: 91</p>
-                    <p>
-                        Total listening time: <span>3</span> hours and{" "}
-                        <span>21</span> minutes
-                    </p>
-                    <p>Favorite artist: PINQ</p>
+                    <div>
+                        <p>Total tracks:</p>
+                        <p>28</p>
+                    </div>
+                    <div>
+                        <p>Total listening time:</p>
+                        <p>
+                            <span>3</span> hours and <span>21</span> minutes
+                        </p>
+                    </div>
+                    <div>
+                        <p>Favorite artist:</p>
+                        <p>PINQ</p>
+                    </div>
                 </div>
                 <TrackList tracks={[...mockTracks, ...mockTracks]} />
             </div>
