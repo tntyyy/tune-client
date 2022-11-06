@@ -1,5 +1,6 @@
 import React, { FC } from "react";
 
+import { addZeroToTheBeginOfTheNumber } from "@/utils/addZeroToTheBeginOfTheNumber";
 import { secondsToReadableTimeFormat } from "@/utils/secondsToReadableTimeFormat";
 
 import { ITrack } from "@/types/track";
@@ -20,7 +21,9 @@ const Track: FC<TrackProps> = ({
     return (
         <div className={styles.track}>
             <div className={styles.left}>
-                <span className={styles.position}>0{position + 1}</span>
+                <span className={styles.position}>
+                    {addZeroToTheBeginOfTheNumber(position + 1)}
+                </span>
                 <img src={cover} alt="Cover" />
                 <div className={styles.info}>
                     <span>{name}</span>
