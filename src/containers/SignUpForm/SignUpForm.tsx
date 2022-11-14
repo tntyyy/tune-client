@@ -1,5 +1,6 @@
 import React, { FC, useState } from "react";
 
+import CheckboxField from "@/components/CheckboxField/CheckboxField";
 import InputField from "@/components/InputField/InputField";
 
 import { ISignUpFormFields } from "@/types/sign";
@@ -60,34 +61,28 @@ const SignUpForm: FC<SignUpFormProps> = ({ handleSubmit }) => {
                 }
             />
             <div className={styles.roles}>
-                <label className={styles.radio}>
-                    <input
-                        type="radio"
-                        name={"role"}
-                        value="USER"
-                        onChange={(event) =>
-                            setSignUpData({
-                                ...signUpData,
-                                role: event.target.value,
-                            })
-                        }
-                    />
-                    <span>I am a regular user</span>
-                </label>
-                <label className={styles.radio}>
-                    <input
-                        type="radio"
-                        name={"role"}
-                        value="ARTIST"
-                        onChange={(event) =>
-                            setSignUpData({
-                                ...signUpData,
-                                role: event.target.value,
-                            })
-                        }
-                    />
-                    <span>I'm an artist</span>
-                </label>
+                <CheckboxField
+                    label="I`m a regular user"
+                    name={"role"}
+                    value={"USER"}
+                    onChange={(event) =>
+                        setSignUpData({
+                            ...signUpData,
+                            role: event.target.value,
+                        })
+                    }
+                />
+                <CheckboxField
+                    label="I`m an artist user"
+                    name={"role"}
+                    value={"ARTIST"}
+                    onChange={(event) =>
+                        setSignUpData({
+                            ...signUpData,
+                            role: event.target.value,
+                        })
+                    }
+                />
             </div>
             <button type="submit" className={styles.btn}>
                 Sign Up

@@ -1,8 +1,8 @@
 import React, { FC } from "react";
 
-import { IPlaylist } from "@/types/playlist";
+import PlayButton from "@/components/ui/PlayButton/PlayButton";
 
-import playIcon from "@/assets/icons/play.svg";
+import { IPlaylist } from "@/types/playlist";
 
 import styles from "./AlbumOfWeek.module.scss";
 
@@ -21,7 +21,7 @@ const AlbumOfWeek: FC<IAlbumOfWeekProps> = ({ album }) => {
                         <h4>{album.name}</h4>
                         <span>{album.author}</span>
                     </div>
-                    <img src={playIcon} alt="Play album button" />
+                    <PlayButton onPlayClick={() => console.log("click2")} />
                 </div>
             </div>
         </div>
