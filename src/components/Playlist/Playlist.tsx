@@ -1,10 +1,9 @@
-import React, { FC, useState } from "react";
+import React, { FC } from "react";
 import { Link } from "react-router-dom";
 
-import { IPlaylist } from "@/types/playlist";
+import PlayButton from "@/components/ui/PlayButton/PlayButton";
 
-import pauseIcon from "@/assets/icons/pause.svg";
-import playIcon from "@/assets/icons/play.svg";
+import { IPlaylist } from "@/types/playlist";
 
 import styles from "./Playlist.module.scss";
 
@@ -15,13 +14,6 @@ const Playlist: FC<IPlaylist> = ({
     author,
     numberOfTracks,
 }) => {
-    const [isPlay, setIsPlay] = useState<boolean>(false);
-
-    const handlePlayClick = (event: React.MouseEvent) => {
-        event.stopPropagation();
-        event.preventDefault();
-        setIsPlay(!isPlay);
-    };
     return (
         <Link
             to={`/playlist/${id}`}
@@ -33,11 +25,7 @@ const Playlist: FC<IPlaylist> = ({
             <span>{numberOfTracks} tracks</span>
 
             <div className={styles.play}>
-                <img
-                    onClick={handlePlayClick}
-                    src={isPlay ? pauseIcon : playIcon}
-                    alt="Handle play track"
-                />
+                <PlayButton onPlayClick={() => console.log("click")} />
                 <div className={styles.info}>
                     <p>{name}</p>
                     <span>{author}</span>
