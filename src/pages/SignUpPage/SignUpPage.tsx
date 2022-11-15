@@ -6,6 +6,8 @@ import { ToastContainer } from "react-toastify";
 import Navigation from "@/containers/Navigation/Navigation";
 import SignUpForm from "@/containers/SignUpForm/SignUpForm";
 
+import { useAppDispatch } from "@/hooks/redux";
+
 import { AppRoutesEnum } from "@/routes/types";
 
 import { adapterSignUpFieldsToIUser } from "@/utils/adapterSignUpFieldsToIUser";
@@ -14,6 +16,7 @@ import { successNotification } from "@/utils/notifications";
 import { notificationsForEveryError } from "@/utils/notificationsForEveryError";
 
 import { authApi } from "@/store/api/authApi";
+import { setUser } from "@/store/reducers/authSlise";
 
 import { ISignUpFormFields } from "@/types/sign";
 
@@ -23,9 +26,12 @@ import styles from "./SignUpPage.module.scss";
 
 const SignUpPage: FC = () => {
     const [registerUser] = authApi.useRegisterUserMutation();
+    const dispatch = useAppDispatch();
     const navigate = useNavigate();
 
-    const onSuccessSignUp = () => {
+    const onSuccessSignUp = (data: any) => {
+        console.log(data);
+        dispatch(setUser(data));
         successNotification("You have successfully registered");
         navigate("/");
     };
@@ -35,10 +41,13 @@ const SignUpPage: FC = () => {
         data: ISignUpFormFields
     ) => {
         e.preventDefault();
+        const userData = adapterSignUpFieldsToIUser(data);
         try {
-            await registerUser(adapterSignUpFieldsToIUser(data))
+            await registerUser(userData)
                 .unwrap()
-                .then(() => onSuccessSignUp())
+                .then(() => {
+                    onSuccessSignUp(userData);
+                })
                 .catch((error) =>
                     notificationsForEveryError(error.data.message.errors)
                 );
