@@ -1,7 +1,5 @@
 import React, { FC, useState } from "react";
 
-import styles from "./LikeButton.module.scss";
-
 interface LikeButtonProps {
     onLikeClick: () => void;
 }
