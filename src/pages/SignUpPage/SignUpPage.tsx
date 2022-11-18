@@ -30,7 +30,6 @@ const SignUpPage: FC = () => {
     const navigate = useNavigate();
 
     const onSuccessSignUp = (data: any) => {
-        console.log(data);
         dispatch(setUser(data));
         successNotification("You have successfully registered");
         navigate("/");

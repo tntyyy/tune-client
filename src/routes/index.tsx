@@ -8,7 +8,7 @@ import SignUpPage from "@/pages/SignUpPage/SignUpPage";
 
 import { AppRoutesEnum } from "@/routes/types";
 
-const AppRoutes = () =>
+export const PublicRoutes = () =>
     useRoutes([
         {
             path: AppRoutesEnum.HOME,
@@ -23,9 +23,23 @@ const AppRoutes = () =>
             element: <SignInPage />,
         },
         {
-            path: AppRoutesEnum.FAVORITES,
-            element: <FavoritesPage />,
+            path: "*",
+            element: <MainPage />,
         },
     ]);
 
-export default AppRoutes;
+export const PrivateRoutes = () =>
+    useRoutes([
+        {
+            path: AppRoutesEnum.HOME,
+            element: <MainPage />,
+        },
+        {
+            path: AppRoutesEnum.FAVORITES,
+            element: <FavoritesPage />,
+        },
+        {
+            path: "*",
+            element: <MainPage />,
+        },
+    ]);
